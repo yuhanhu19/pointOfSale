@@ -22,19 +22,21 @@ namespace pointOfSale
         }
         
         [Fact]
-        public void ShouldReturnNotFoundMessageGivenBarcode99999()
-        {
-            var priceCalculator = new PriceCalculator();
-            var priceResult = priceCalculator.GetPrice("99999");
-            Assert.Equal("Error: barcode not found", priceResult);
-        }
-        
-        [Fact]
         public void ShouldReturnEmptyCodeMessageGivenEmptyBarcode()
         {
             var priceCalculator = new PriceCalculator();
             var priceResult = priceCalculator.GetPrice("");
             Assert.Equal("Error: empty barcode", priceResult);
+        }
+        
+        [Fact]
+        public void ShouldThrowExceptionGivenAllOtherBarcodes()
+        {
+            var priceCalculator = new PriceCalculator();
+            var ex1 = Assert.Throws<Exception>(()=>priceCalculator.GetPrice("99999"));
+            var ex2 = Assert.Throws<Exception>(()=>priceCalculator.GetPrice("456456"));
+            Assert.Equal("Error: barcode not found", ex1.Message);
+            Assert.Equal("Error: barcode not found", ex2.Message);
         }
     }
 }

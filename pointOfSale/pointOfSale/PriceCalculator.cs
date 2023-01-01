@@ -1,3 +1,5 @@
+using System;
+
 namespace pointOfSale
 {
     public class PriceCalculator
@@ -17,14 +19,10 @@ namespace pointOfSale
             {
                 return "$12.50";
             }
-
-            if (barcode.Equals("99999"))
-            {
-                return "Error: barcode not found";
-            }
-
-
-            return null;
+            
+            throw new Exception("Error: barcode not found");
         }
+        
+        
     }
 }
