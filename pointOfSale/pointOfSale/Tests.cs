@@ -38,5 +38,13 @@ namespace pointOfSale
             Assert.Equal("Error: barcode not found", ex1.Message);
             Assert.Equal("Error: barcode not found", ex2.Message);
         }
+
+        [Fact]
+        public void ShouldReturnTotalPriceGivenMultipleValidBarcodes()
+        {
+            var priceCalculator = new PriceCalculator();
+            var totalPrice = priceCalculator.Total("12345, 23456");
+            Assert.Equal(19.75,totalPrice);
+        }
     }
 }
