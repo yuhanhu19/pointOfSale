@@ -20,5 +20,13 @@ namespace pointOfSale
             var priceResult = priceCalculator.GetPrice("23456");
             Assert.Equal("$12.50", priceResult);
         }
+        
+        [Fact]
+        public void ShouldReturnNotFoundMessageGivenBarcode99999()
+        {
+            var priceCalculator = new PriceCalculator();
+            var priceResult = priceCalculator.GetPrice("99999");
+            Assert.Equal("Error: barcode not found", priceResult);
+        }
     }
 }
