@@ -4,6 +4,7 @@ namespace pointOfSale
     {
         public string GetPrice(string barcode)
         {
+            
             if (barcode.Equals("12345"))
             {
                 return "$7.25";
@@ -12,6 +13,11 @@ namespace pointOfSale
             if (barcode.Equals("23456"))
             {
                 return "$12.50";
+            }
+
+            if (barcode.Equals("99999"))
+            {
+                return "Error: barcode not found";
             }
 
 
