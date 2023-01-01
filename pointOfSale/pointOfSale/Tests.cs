@@ -44,7 +44,7 @@ namespace pointOfSale
         {
             var priceCalculator = new PriceCalculator();
             var totalPrice = priceCalculator.Total("12345, 23456");
-            Assert.Equal(19.75,totalPrice);
+            Assert.Equal("$19.75",totalPrice);
         }
     }
 }

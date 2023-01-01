@@ -25,10 +25,11 @@ namespace pointOfSale
             }
         }
 
-        public float Total(string barcodes)
+        public string Total(string barcodes)
         {
             var priceList = barcodes.Split(',').Select(barcode => GetPrice(barcode.Trim())).ToList();
-            return priceList.Select(price => float.Parse(price.TrimStart('$'))).ToList().Sum();
+            var totalPrice = priceList.Select(price => float.Parse(price.TrimStart('$'))).ToList().Sum();
+            return "$" + totalPrice;
         }
     }
 }
