@@ -8,7 +8,7 @@ namespace pointOfSale
         {
             if (string.IsNullOrEmpty(barcode))
             {
-                return "Error: empty barcode";
+                throw new Exception("Error: empty barcode");
             }
             if (barcode.Equals("12345"))
             {

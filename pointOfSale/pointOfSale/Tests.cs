@@ -25,8 +25,8 @@ namespace pointOfSale
         public void ShouldReturnEmptyCodeMessageGivenEmptyBarcode()
         {
             var priceCalculator = new PriceCalculator();
-            var priceResult = priceCalculator.GetPrice("");
-            Assert.Equal("Error: empty barcode", priceResult);
+            var ex = Assert.Throws<Exception>(()=>priceCalculator.GetPrice(""));
+            Assert.Equal("Error: empty barcode", ex.Message);
         }
         
         [Fact]
