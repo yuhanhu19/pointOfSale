@@ -9,6 +9,12 @@ namespace pointOfSale
                 return "$7.25";
             }
 
+            if (barcode.Equals("23456"))
+            {
+                return "$12.50";
+            }
+
+
             return null;
         }
     }
