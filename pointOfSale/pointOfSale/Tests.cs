@@ -12,5 +12,13 @@ namespace pointOfSale
             var priceResult = priceCalculator.GetPrice("12345");
             Assert.Equal("$7.25", priceResult);
         }
+        
+        [Fact]
+        public void ShouldReturnPriceGivenBarcode23456()
+        {
+            var priceCalculator = new PriceCalculator();
+            var priceResult = priceCalculator.GetPrice("23456");
+            Assert.Equal("$12.50", priceResult);
+        }
     }
 }
